@@ -1,0 +1,103 @@
+# ~/.config/ameka/config.toml
+# Ameka Voice. Every value here is optional — this file only overrides defaults.
+
+# ---------------------------------------------------------------- accounts --
+# Add as many ChatGPT (OpenAI) and Claude (Anthropic) accounts as you have.
+# Use api_key directly, or api_key_env to read it from your shell environment.
+
+[accounts.openai.personal]
+label   = "personal"
+api_key = "sk-REPLACE-ME"
+
+# [accounts.openai.work]
+# label       = "GTA"
+# api_key_env = "OPENAI_API_KEY_GTA"
+
+[accounts.anthropic.personal]
+label       = "personal"
+api_key_env = "ANTHROPIC_API_KEY"
+
+# [accounts.anthropic.gta]
+# api_key_env = "ANTHROPIC_API_KEY_GTA"
+
+# ------------------------------------------------------------------- voice --
+[voice]
+account      = "personal"        # which OpenAI account pays for speech
+model        = "gpt-4o-mini-tts"
+voice        = "ballad"          # alloy ash ballad coral echo sage shimmer verse
+speed        = 1.05
+instructions = "Calm, low-key, confident. A chief of staff giving a one-line update in your ear."
+output_device = "AirPods"        # substring of the device name; blank = system default
+
+# ------------------------------------------------------------------ listen --
+[listen]
+account         = "personal"
+stt_model       = "gpt-4o-mini-transcribe"
+input_device    = "AirPods"
+window_seconds  = 9              # hard cap on one reply
+silence_seconds = 1.1            # trailing quiet that ends your reply
+earcon          = true           # blip when the mic opens and closes
+
+# --------------------------------------------------------------- summarize --
+# ---------------------------------------------------------------- brain --
+# Her own model, in the app: llama.cpp with a 4-bit chat model in ~/.ameka/models,
+# chosen as the most-used 7-14B model that fits this machine, and re-checked daily.
+# Nothing here needs a key. Set provider = "openai" or "anthropic" below only if
+# you want a paid model instead.
+
+[summarize]
+provider = "openai"              # "openai" or "anthropic"
+account  = "personal"
+model    = "gpt-4o-mini"
+# For Claude instead:
+#   provider = "anthropic"
+#   model    = "claude-haiku-4-5-20251001"
+
+# ---------------------------------------------------------------- behavior --
+[behavior]
+# simple: one sentence per finished turn, with the project named; anything you
+#         say back is read back with where it will go, and typed only after
+#         you say yes and only once that session is on screen. No conversation,
+#         nothing decided for you.
+# full:   the conversational mode — she judges what to send, where, and when.
+mode              = "simple"
+# Smart loops. Every session — Claude Code, Codex in ChatGPT, a browser tab — is
+# read on its own clock (ten minutes unless you change it in the menu), and her
+# own brain, with your brain below in mind, says whether it is working, finished,
+# stuck or waiting. A finished one is told its own next step; a plainly safe
+# question is answered; anything risky, destructive or outward-facing is one
+# sentence to you instead. "dry" only logs.
+supervise         = "on"         # on | dry | off
+supervise_minutes = 10
+# Your brain: who you are and what you are working toward. Read by every smart
+# loop and every answer. `ameka you edit` opens it; `ameka you set <file>` points
+# at a note you already keep. Looked for at ~/.config/ameka/profile.md, then
+# ~/.claude/CLAUDE.md.
+# profile_path    = "~/Documents/brain.md"
+# Once an hour she adds what she has learned about your work — from the sessions
+# she watches — to a section of that file marked as hers. Everything you wrote
+# stays untouched; delete anything of hers that is wrong.
+learn             = true
+learn_hours       = 1
+reply_affirm      = "proceed"    # what "yes / do it / run it" actually sends
+# room_mic_needs_name = true    # on the laptop mic, only answer when addressed as "Ameka"
+                                 # (off: she answers everything she hears, TV included)
+# project_root    = "~/code"     # where your projects live, for "open a session for X".
+                                 # Optional: she also looks wherever your open sessions are.
+dedupe_seconds    = 4.0
+max_queue         = 8
+auto_listen       = true         # listen for your answer after every briefing
+confirm_freeform  = true         # read anything unrecognised back before sending
+
+# ---------------------------------------------------------------- glossary --
+# Ameka already knows Claude, Claude Code, ChatGPT, Codex, Anthropic, OpenAI,
+# Ameka and the usual project names — speech recognisers turn "Claude" into
+# "cloud" and "Codex" into "codecs" unless told otherwise. Add your own here:
+# the key is what you hear it get wrong, the value is what you meant.
+
+[glossary]
+# "my repo name"    = "my-repo-name"     # what you hear it get wrong = what you meant
+
+[server]
+host = "127.0.0.1"
+port = 8765

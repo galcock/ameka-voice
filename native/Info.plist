@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>ai.ameka.stt</string>
+  <key>CFBundleName</key><string>Ameka Voice</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Ameka Voice turns what you say into the command it sends to your coding session. Recognition happens on this Mac.</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Ameka Voice listens for your short spoken replies, like "proceed".</string>
+</dict></plist>

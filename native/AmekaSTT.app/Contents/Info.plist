@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleName</key><string>Ameka Voice</string>
+  <key>CFBundleDisplayName</key><string>Ameka Voice</string>
+  <key>CFBundleIdentifier</key><string>ai.ameka.voice.stt</string>
+  <key>CFBundleExecutable</key><string>ameka-stt</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleShortVersionString</key><string>0.2.0</string>
+  <key>CFBundleVersion</key><string>1</string>
+  <key>LSUIElement</key><true/>
+  <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>Ameka Voice turns your short spoken replies into the command it sends to your coding session. Recognition runs on this Mac.</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Ameka Voice listens for your short spoken replies, like "proceed".</string>
+</dict></plist>

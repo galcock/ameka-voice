@@ -1,0 +1,16 @@
+[project]
+name = "ameka-voice"
+version = "0.16.16"
+description = "Run your Claude Code, Codex and web sessions from your AirPods."
+requires-python = ">=3.11"
+dependencies = ["sounddevice>=0.4.6", "numpy>=1.26", "websocket-client>=1.7", "pywhispercpp>=1.2; sys_platform == 'win32'"]
+
+[project.scripts]
+ameka = "amekavoice.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["amekavoice"]
